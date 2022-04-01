@@ -7,10 +7,11 @@ function App() {
   const [items, setItems] = useState("")
 
   const Button = ({ number }) => {
+    const isActive = number === items;
     return ( <button
               onClick={() => setItems(number)} 
-              className="btn-number bg-gray-700 h-10 w-10 rounded-full pt-1 
-    text-gray-200 focus:bg-gray-400 transition-all duration-150">{number}</button>
+              className={`btn-number bg-gray-700 h-10 w-10 rounded-full pt-1 text-gray-200 ${isActive? 'btn-number-ativo':''}`}>
+                {number}</button>
     )
   }
   return (
@@ -29,11 +30,10 @@ function App() {
         <li><Button number={5} /></li>
       </ul>
       <div className="text-center ">
-        <button onClick={() => setIsSubmitted(true)} className="btn-rating w-full text-white uppercase tracking-wide 
+        <button id="submited" disabled={!items} onClick={() => setIsSubmitted(true)} className="btn-rating w-full text-white uppercase tracking-wide 
         pt-3 pb-2 rounded-full">Submit</button>
       </div>
       </div>}
-
     {isSubmitted && <ThankYou items={items} setIsSubmitted={setIsSubmitted} />}
     </>
   )

@@ -40,8 +40,10 @@ body {
   color: var(--Orange);
 }
 
-.btn-number:hover {
+
+.btn-number:hover, .btn-number-ativo {
   background-color: var(--Orange);
+
 }
 
 .p-rating {
